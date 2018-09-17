@@ -9,4 +9,11 @@
             android:gravity="center"
             android:src="@mipmap/ic_launcher" />
     </item>
+
+    <item>
+        <bitmap
+            android:gravity="bottom"
+            android:src="@mipmap/changefly_name" />
+    </item>
+
 </layer-list>
