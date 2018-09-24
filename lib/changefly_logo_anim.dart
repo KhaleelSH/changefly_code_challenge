@@ -4,6 +4,8 @@ import 'package:changefly/quadratic_curve.dart';
 
 /// Changefly Logo Animation
 class ChangeflyLogoAnim extends StatefulWidget {
+  bool isBounce;
+  ChangeflyLogoAnim({this.isBounce = false});
   // declare the state to be able to restart the animation from the root widget
   _ChangeflyLogoAnimState myState;
   @override
@@ -38,7 +40,8 @@ class _ChangeflyLogoAnimState extends State<ChangeflyLogoAnim>
       CurvedAnimation(
         parent: controller,
         // setting the first animation to take 85% of the whole animation time
-        curve: Interval(0.0, 0.85, curve: Curves.linear),
+        curve: Interval(0.0, 0.85,
+            curve: widget.isBounce ? Curves.bounceOut : Curves.linear),
       ),
     );
 

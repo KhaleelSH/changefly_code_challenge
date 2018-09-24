@@ -1,43 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:changefly/changefly_logo_anim.dart';
 import 'package:changefly/changefly_name_anim.dart';
-import 'package:changefly/second_anim.dart';
 
-// starting point in the app
-void main() => runApp(App());
-
-class App extends StatelessWidget {
+class SecondAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Changefly',
-      home: Home(),
-    );
-  }
-}
-
-/// root widget in the widget tree
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // declare the animation widgets
-    ChangeflyLogoAnim changeflyLogoAnim = ChangeflyLogoAnim();
-    ChangeflyNameAnim changeflyNameAnim = ChangeflyNameAnim();
-
+    final ChangeflyLogoAnim changeflyLogoAnim =
+        ChangeflyLogoAnim(isBounce: true);
+    final ChangeflyNameAnim changeflyNameAnim = ChangeflyNameAnim();
     return Scaffold(
       appBar: AppBar(
         title: Text('Changefly'),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.open_in_new),
-            onPressed: () {
-              // start the second animation screen
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (c) => SecondAnimation()));
-            },
-            tooltip: 'Refresh',
-          ),
           IconButton(
             icon: Icon(Icons.refresh),
             onPressed: () {
